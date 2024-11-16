@@ -2,39 +2,44 @@
 //Complete
 
 
-
+//Task 2: Create the App Component
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+//Creating add product parent funtion
+function AddProduct() {
+  //Using useState to initialize product list
+      const [products, setProducts] = useState([
+          { id: 1, name: 'Laptop', price: 850, description: 'A portable computer'},
+          { id: 2, name: 'TV', price: 400, description: 'electroncic object that can display visuals'},
+          { id: 3, name: 'Speaker', price: 125, description: 'To listen to audio out loud'},
+          { id: 4, name: 'Phone', price: 400, description: 'mobile mini copmuter that can be used for communication'},
+          { id: 5, name: 'Headphones', price: 200, description: 'Placed over your head and ears to listion to audio' },
+      ]);
+  
+          const addProduct = (microphone) => {
+              setProducts([...products, microphone]);
+          };
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+          //creating a 6th product that can be added
+          const microphone = { id: 6, name: 'Microphone', price: 80, description: 'A device that can record audio'}
+          
+          //using map to display the products array in the output
+          return (
+              <div>
+                  <h2>Products</h2>
+                  <button onClick={() => addProduct(microphone)}>Add New Product</button>
+                  <ul>
+                      {products.map((product) => (
+                          <li key={product.id}>
+                            {product.name}, ${product.price}, {product.description}
+                          </li>
+                        ))}
+                      </ul>
+                  </div>
+              );
+          }
+  
+      export default AddProduct;
 
-export default App
+      //could not figure out how to had multiple different products. so far
