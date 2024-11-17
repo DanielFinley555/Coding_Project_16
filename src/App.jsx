@@ -5,8 +5,10 @@
 //Task 2: Create the App Component
 import { useState } from 'react'
 import './App.css'
+//Was not able to import ProductList without causing an error
+import ProductItem from './components/ProductItem';
 
-//Creating add product parent funtion
+//Creating add product funtion
 function AddProduct() {
   //Using useState to initialize product list
       const [products, setProducts] = useState([
@@ -43,3 +45,4 @@ function AddProduct() {
       export default AddProduct;
 
       //could not figure out how to had multiple different products. so far
+      //Unfortuntly this is as far as I could go, could not figure out any more than this
